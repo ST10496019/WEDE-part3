@@ -1,0 +1,165 @@
+/* Modern dark theme — responsive, mobile-first */
+:root{
+  --bg:#07121a; --panel:#0b1a26; --muted:#9fb0c8; --accent:#00b4d8; --glass:rgba(255,255,255,0.03);
+  --radius:12px; --container:1400px;
+  font-synthesis: none;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#e6eef8;background:linear-gradient(180deg,#051018 0%, #07121a 100%) fixed;}
+.container{max-width:var(--container);margin:0 auto;padding:28px;}
+.site{min-height:100vh;display:flex;flex-direction:column}
+.site > main{flex:1}
+.header{background:transparent;padding:14px 0;position:sticky;top:0;z-index:50}
+.header-inner{display:flex;align-items:center;gap:16px}
+.brand{font-weight:700;font-size:20px;color:var(--accent)}
+.nav{display:flex;gap:12px;flex:1}
+.nav a{color:rgba(255,255,255,0.85);text-decoration:none;padding:8px 10px;border-radius:8px}
+.nav a:hover, .nav a.active{background:var(--glass);color:#fff}
+.nav a:focus{outline:2px solid rgba(0,180,216,0.18);box-shadow:0 0 0 3px rgba(0,180,216,0.06);}
+.wallet{min-width:120px;text-align:right;color:var(--muted);font-weight:600}
+.hamburger{display:none;background:transparent;border:0;color:var(--muted);font-size:22px}
+
+/* Mobile menu: hidden by default, revealed when .nav--open is applied */
+.nav{transition:all 0.2s ease}
+.nav--open{display:flex !important;flex-direction:column;position:fixed;left:8px;right:8px;top:64px;background:linear-gradient(180deg, rgba(11,26,38,0.98), rgba(11,26,38,0.99));padding:12px;border-radius:12px;box-shadow:0 12px 36px rgba(2,6,23,0.7);z-index:9999;max-height:calc(100vh - 96px);overflow:auto}
+.nav--open a{padding:10px 12px;display:block}
+.hero{padding:24px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.lead{color:var(--muted)}
+.hero-media{width:100%;display:block;margin-bottom:10px}
+.hero-img{width:100%;height:auto;border-radius:12px;display:block}
+.hero-copy{max-width:720px}
+.features{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6);}
+.small{flex:1;min-width:220px}
+.latest{margin-top:18px}
+.fixture-preview{padding:12px;background:rgba(0,0,0,0.2);border-radius:8px}
+
+.main{display:flex;gap:12px}
+.fixtures-grid{display:grid;grid-template-columns:1fr 380px;gap:20px}
+@media (max-width:900px){
+  .fixtures-grid{grid-template-columns:1fr}
+  /* hide inline nav on smaller screens, show hamburger */
+  .nav{display:none}
+  .hamburger{display:block}
+  .container{padding:14px}
+  .header-inner{align-items:center}
+  .header .wallet{display:none}
+}
+
+/* tablet: two-column main content where appropriate */
+@media (min-width:901px) and (max-width:1200px){
+  .fixtures-grid{display:grid;grid-template-columns:1fr 360px;gap:16px}
+  .container{padding:18px}
+}
+
+/* desktop: wider container */
+@media (min-width:1201px){
+  :root{--container:1200px}
+  .fixtures-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+  /* make hero two-column on desktop */
+  .hero{flex-direction:row;align-items:center;gap:20px}
+  .hero-media{flex:0 0 55%;max-width:55%}
+  .hero-img{max-height:260px;object-fit:cover}
+  .hero-copy{flex:1}
+}
+
+.fixture{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;padding:12px;border-radius:8px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));margin-bottom:12px}
+.fixture .meta{font-size:13px;color:var(--muted);margin-top:6px}
+.fixture .teams{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.team-logo{width:56px;height:56px;border-radius:50%;flex:0 0 56px;overflow:hidden;background:#021016;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+/* larger team icons for feature area */
+.team-large{width:120px;height:120px;border-radius:14px;overflow:hidden}
+.team-name{font-weight:600}
+.fixture .teams .vs{font-size:12px;color:var(--muted);margin:0 6px}
+/* ensure images inside the logo container cover and stay centered */
+.team-logo img{width:100%;height:100%;object-fit:cover;display:block}
+.btn{background:var(--accent);border:0;padding:8px 12px;border-radius:8px;color:#021016;cursor:pointer;font-weight:700}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+/* small button variant */
+.btn.small{padding:6px 8px;font-size:13px;border-radius:6px}
+
+.choice-group{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:8px}
+.choice-btn{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);color:inherit;padding:8px 10px;border-radius:8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-width:180px}
+.choice-btn .choice-odd{font-size:12px;color:var(--muted);margin-top:4px}
+.choice-btn:hover{background:var(--glass);transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.choice-btn{transition:all 150ms ease}
+.choice-btn.selected{background:var(--accent);color:#021016;border-color:rgba(0,0,0,0.25);}
+
+.teams{gap:12px}
+
+@media (max-width:480px){
+  .choice-group{flex-direction:row;gap:6px}
+  .choice-btn{min-width:64px;padding:6px}
+}
+
+@media (max-width:900px){
+  .fixture{flex-direction:column;align-items:flex-start;padding:10px}
+  .fixture > div:last-child{width:100%;margin-top:8px;text-align:right}
+  .choice-group{width:100%;justify-content:space-between}
+  .choice-btn{flex:1;min-width:0}
+  .bets-panel{position:static;top:auto;margin-top:12px}
+}
+
+/* Desktop: make choice buttons full width within fixture to avoid cramped layout */
+@media (min-width:901px){
+  .choice-group{justify-content:flex-start}
+  .choice-btn{min-width:180px}
+}
+
+/* lock scrolling when mobile nav open */
+.lock-scroll{overflow:hidden;height:100%}
+
+.bets-panel{position:sticky;top:80px}
+.slip-footer{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.slip-footer input{width:120px;padding:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+
+.muted{color:var(--muted);font-size:13px}
+.auth-forms{display:flex;gap:12px;flex-wrap:wrap}
+.form{flex:1;min-width:240px}
+.form label{display:block;margin-bottom:8px}
+.form input, .form textarea{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+
+.wallet-card{margin-top:16px;padding:12px}
+.wallet-actions{display:flex;gap:8px;margin-top:8px}
+
+.footer{padding:18px 0;color:var(--muted);text-align:center;margin-top:36px}
+
+/* Make images and media fluid */
+img, video, svg{max-width:100%;height:auto;display:block}
+
+/* small screens */
+@media (max-width:600px){
+  .header-inner{flex-direction:row;align-items:center}
+  .brand{font-size:18px}
+  .features{flex-direction:column}
+  .auth-forms{flex-direction:column}
+  .wallet{display:none}
+  .card{padding:14px}
+}
+
+/* utility: full width content for small screens */
+.container.full{padding-left:12px;padding-right:12px}
+
+/* Laptop: expand layout to fill wider laptop screens (1000–1600px) */
+@media (min-width:1000px) and (max-width:1600px){
+  :root{--container:1400px}
+  .container{max-width:var(--container);padding-left:28px;padding-right:28px}
+
+  /* Give fixtures and bet-slip more breathing room */
+  .fixtures-grid{grid-template-columns:1fr 380px;gap:24px}
+  .bets-panel{position:sticky;top:88px}
+
+  /* Slightly larger hero media on laptops */
+  .hero{gap:28px}
+  .hero-media{flex:0 0 60%;max-width:60%}
+  .hero-img{max-height:320px}
+
+  /* Make team logos and feature icons a bit larger */
+  .team-logo{width:56px;height:56px;flex:0 0 56px}
+  .team-large{width:120px;height:120px}
+
+  /* Choice buttons wider but still responsive */
+  .choice-group{gap:12px}
+  .choice-btn{min-width:180px;padding:10px 12px}
+}

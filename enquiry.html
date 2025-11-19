@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BetwithBetter – Enquiries</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="site">
+    <!-- HEADER (exact same as all your pages) -->
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">BetwithBetter</div>
+
+        <nav id="main-nav" class="nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="matches.html">Matches</a>
+          <a href="mybets.html">My Bets</a>
+          <a href="updates.html">Updates</a>
+          <a href="account.html">Account</a>
+          <a href="contact.html">Contact</a>
+          <a href="enquiry.html" class="active" >Enquiries</a>
+        </nav>
+
+        <div class="wallet" id="nav-wallet">R0.00</div>
+        <button class="hamburger" id="hamburger" aria-controls="main-nav" aria-expanded="false">&#9776;</button>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+      <section class="card">
+        <h1>Enquiries</h1>
+        <p>If you have any questions, feel free to check the FAQ or submit your own enquiry below.</p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="card">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>How do I place a bet?</h3>
+          <p>Go to the Matches page, select a match, choose your betting option, and confirm your bet.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I deposit funds?</h3>
+          <p>Open the Wallet on your Account page and choose Deposit.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Why is my bet pending?</h3>
+          <p>Some matches require confirmation. Pending bets usually clear within a few minutes.</p>
+        </div>
+      </section>
+
+      <!-- Enquiry Form -->
+      <section class="card">
+        <h2>Submit an Enquiry</h2>
+        <form id="enquiry-form">
+          <label>Your Name</label>
+          <input type="text" id="enq-name" required>
+
+          <label>Email</label>
+          <input type="email" id="enq-email" required>
+
+          <label>Category</label>
+          <select id="enq-category" required>
+            <option value="account">Account</option>
+            <option value="betting">Betting</option>
+            <option value="wallet">Wallet</option>
+            <option value="technical">Technical</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label>Message</label>
+          <textarea id="enq-message" rows="5" required></textarea>
+
+          <button class="btn" type="submit">Send Enquiry</button>
+        </form>
+
+        <p id="enq-success" style="display:none; color:green; margin-top:10px;">
+          Your enquiry has been submitted!
+        </p>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">© BetwithBetter – Demo. No real money. For demonstration only.</div>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+
+  <script>
+    // Save enquiry into localStorage
+    document.getElementById("enquiry-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const entry = {
+        name: document.getElementById("enq-name").value,
+        email: document.getElementById("enq-email").value,
+        category: document.getElementById("enq-category").value,
+        message: document.getElementById("enq-message").value,
+        date: new Date().toLocaleString()
+      };
+
+      const all = JSON.parse(localStorage.getItem("enquiries") || "[]");
+      all.push(entry);
+      localStorage.setItem("enquiries", JSON.stringify(all));
+
+      document.getElementById("enq-success").style.display = "block";
+      document.getElementById("enquiry-form").reset();
+    });
+  </script>
+</body>
+</html>

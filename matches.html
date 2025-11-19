@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BetwithBetter  Matches</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="site">
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">BetwithBetter</div>
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="matches.html" class="active">Matches</a>
+          <a href="mybets.html">My Bets</a>
+          <a href="updates.html">Updates</a>
+          <a href="account.html">Account</a>
+          <a href="contact.html">Contact</a>
+          <a href="enquiry.html">Enquiries</a>
+        </nav>
+        <div class="wallet" id="nav-wallet">R0.00</div>
+  <button class="hamburger" id="hamburger" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Live Fixtures</h2>
+        <div class="filters">
+          <label>League:
+            <select id="league-filter">
+              <option value="ALL">All</option>
+              <option value="PSL">PSL</option>
+              <option value="EPL">EPL</option>
+              <option value="LaLiga">LaLiga</option>
+              <option value="MLS">MLS</option>
+            </select>
+          </label>
+          <label>Search: <input id="search" placeholder="Team name..." /></label>
+        </div>
+        <div id="fixtures" class="fixtures-grid">Loading fixtures</div>
+      </section>
+
+      <aside class="card bets-panel" id="bet-slip">
+        <h3>Your Bet Slip</h3>
+        <div id="slip-items">No selections</div>
+        <div class="slip-footer">
+          <div>Stake: R <input id="stake" type="number" value="10" min="1"></div>
+          <button id="place-bet" class="btn">Place Bet</button>
+          <div class="muted">Bets saved locally in your browser.</div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div class="container">© BetwithBetter  Demo. No real money.</div>
+    </footer>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
