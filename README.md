@@ -90,3 +90,19 @@ Clone the project:
 
 ```sh
 git clone https://github.com/ST10496019/WEDE-part3
+
+
+
+## References
+Google Fonts, 2025. *Google Fonts.* [online] Available at: <https://fonts.google.com/> [Accessed 27 September 2025].
+
+Mozilla Developer Network (MDN), 2025. *CSS: Cascading Style Sheets.* [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS> [Accessed 27 September 2025].
+
+Mozilla Developer Network (MDN), 2025. *HTML: HyperText Markup Language.* [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/HTML> [Accessed 27 September 2025].
+
+W3Schools, 2025. *HTML and CSS Tutorials.* [online] Available at: <https://www.w3schools.com/> [Accessed 27 September 2025].
+
+Unsplash, 2025. *Free Stock Images.* [online] Available at: <https://unsplash.com/> [Accessed 27 September 2025].
+
+Font Awesome, 2025. *Free Icons.* [online] Available at: <https://fontawesome.com/> [Accessed 27 September 2025>.
+
